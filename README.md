@@ -30,25 +30,57 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2>Actions and Observations</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/MerrickAM/azure-network-protocols/assets/145412020/70b17bd4-4c9a-4513-9c26-4ec46c18ff25"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  We start by creating our resources in Azure, making sure to allow ample time for virtual networks to be created. A common issue in setting these up through azure is not allowing enough time for resources to be created and we need to ensure that both virtual machines are on the same network.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/MerrickAM/azure-network-protocols/assets/145412020/398ed29a-7d8c-45ba-9cc3-d18f2a508bbd"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Next, we will remote in to the windows machine to install wireshark. This is a generic install.
+</p>
+<br />
+
+<p>
+<img src="https://github.com/MerrickAM/azure-network-protocols/assets/145412020/3b89109e-0713-4090-a876-8044760c9cba"/>
+</p>
+<p>
+Now we will attempt to ping the Linux machine using it's private IP address and observe the ICMP traffic in wireshark.
+</p>
+<br />
+
+<p>
+<img src="https://github.com/MerrickAM/azure-network-protocols/assets/145412020/266ba1a5-ec71-469d-b7db-c8fd6f62c132"/>
+</p>
+<p>
+Create a new firewall rule through Azure to deny all ICMP traffic for the Linux machine and observe the change in Wireshark.
+</p>
+<br />
+
+<p>
+<img src="https://github.com/MerrickAM/azure-network-protocols/assets/145412020/c1cf955c-9394-4646-9d4f-bef23487bea2"/>
+</p>
+<p>
+Here, We've used SSH through the command line to connect to the linux machine and observe the traffic within wireshark.
+</p>
+<br />
+
+<p>
+<img src="https://github.com/MerrickAM/azure-network-protocols/assets/145412020/6673e062-9332-4cfd-b6ca-ec42f56e4f6f)"/>
+</p>
+<p>
+Now, we'll observe DHCP protocal by using the command "ipconfig /renew" in the windows machine to attempt to reassign it an IP address.
+</p>
+<br />
+
+<p>
+<img src="https://github.com/MerrickAM/azure-network-protocols/assets/145412020/9ffa8726-ebda-423e-9695-5fa78d4edef9)"/>
+</p>
+<p>
+Finally, we'll use "nslookup google.com" to observe DNS traffic as the server gives us the IP for google.com.
 </p>
 <br />
